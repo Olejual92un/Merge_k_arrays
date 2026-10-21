@@ -26,7 +26,8 @@ Requiere Java 8 o superior.
 javac MezclaKListas.java
 java MezclaKListas
 ```
-
+Universidad Nacional de Colombia - Sede Bogotá
+2026
 ## Créditos
 
 Programa creado con la asistencia de **Claude** (Anthropic), modelo **Claude Sonnet 5.5**.
