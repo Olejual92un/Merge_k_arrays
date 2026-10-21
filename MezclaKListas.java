@@ -1294,7 +1294,7 @@ public class MezclaKListas {
             int cw = 400;
 
             // ---- fila 1: tiempo, espacio y comparacion con los datos
-            int y1 = 76, h1 = 330;
+            int y1 = 70, h1 = 334;
             bloque(g, xs[0], y1, cw, h1, "Tiempo", CIAN, cmp ? "O(N \u00b7 k)" : "O(N log k)", cmp
                     ? "Para sacar cada uno de los N nodos se comparan las k cabezas una por una. Es simple, pero se vuelve lento cuando k crece: N \u00b7 k comparaciones."
                     : "Cada uno de los N nodos entra una vez al heap y sale una vez. Como el heap guarda a lo sumo k nodos, cada operaci\u00f3n cuesta O(log k). En total: N \u00b7 log k.");
@@ -1336,7 +1336,7 @@ public class MezclaKListas {
             }
 
             // ---- fila 2: mejor, promedio y peor caso
-            int y2 = 422, h2 = 286;
+            int y2 = 416, h2 = 292;
             String[] gran = cmp ? new String[] { "O(N)", "O(N \u00b7 k)", "O(N \u00b7 k)" }
                     : new String[] { "O(N)", "O(N log k)", "O(N log k)" };
             String[] texto = cmp ? new String[] {
@@ -1576,9 +1576,8 @@ public class MezclaKListas {
 
         JPanel barra = new JPanel();
         barra.setLayout(new BoxLayout(barra, BoxLayout.Y_AXIS));
-        barra.setBackground(new Color(0x050816));
-        barra.setBorder(BorderFactory.createCompoundBorder(
-                BorderFactory.createMatteBorder(1, 0, 0, 0, new Color(30, 48, 110)), new EmptyBorder(9, 8, 9, 8)));
+        barra.setBackground(FONDO);
+        barra.setBorder(new EmptyBorder(9, 8, 9, 8));
         barra.add(fila1);
         barra.add(Box.createVerticalStrut(8));
         barra.add(fila2);
@@ -1597,20 +1596,23 @@ public class MezclaKListas {
         tAnim.addActionListener(e -> {
             cartas.show(centro, "anim");
             tAnim.activa = true; tCx.activa = false;
-            barra.setVisible(true);
+            fila1.setVisible(true);
+            fila2.setVisible(true);
             tAnim.repaint(); tCx.repaint();
             panel.requestFocusInWindow();
         });
         tCx.addActionListener(e -> {
             cartas.show(centro, "cx");
             tAnim.activa = false; tCx.activa = true;
-            barra.setVisible(false);
+            fila1.setVisible(false);
+            fila2.setVisible(false);
             tAnim.repaint(); tCx.repaint();
         });
-        JPanel pestanas = new JPanel(new FlowLayout(FlowLayout.LEFT, 8, 0));
-        pestanas.setBackground(new Color(0x050816));
-        pestanas.setBorder(BorderFactory.createCompoundBorder(
-                BorderFactory.createMatteBorder(0, 0, 1, 0, new Color(30, 48, 110)), new EmptyBorder(8, 12, 8, 12)));
+        JPanel pestanas = new JPanel(new FlowLayout(FlowLayout.CENTER, 8, 0));
+        pestanas.setBackground(FONDO);
+        pestanas.setBorder(new EmptyBorder(8, 12, 4, 12));
+        f.getContentPane().setBackground(FONDO);
+        barra.setPreferredSize(barra.getPreferredSize());    // la barra conserva su alto aunque se oculte su contenido
         pestanas.add(tAnim);
         pestanas.add(tCx);
         f.getContentPane().add(pestanas, BorderLayout.NORTH);
