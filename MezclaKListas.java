@@ -1,7 +1,4 @@
 /*
- * MezclaKListas.java
- * Animacion didactica del algoritmo voraz para mezclar k listas ordenadas con un Min-heap.
- *
  * Compilar:  javac MezclaKListas.java
  * Ejecutar:  java MezclaKListas
  *
@@ -29,10 +26,10 @@ public class MezclaKListas {
     // ---------------------------------------------------------------------
     //  Constantes: lienzo logico, limites y paleta
     // ---------------------------------------------------------------------
-    static final int W = 1280, H = 720;                       // todo se dibuja en 1280 x 720 y se escala
+    static final int W = 1280, H = 720;                    
     static final int MAX_LISTAS = 5, MAX_POR_LISTA = 5, MAX_TOTAL = 20;
 
-    static final Color FONDO = new Color(0x0D1B4A);           // fondo azul solido
+    static final Color FONDO = new Color(0x0D1B4A);     
     static final Color TEXTO = new Color(0xEAF0FF);
     static final Color TENUE = new Color(0x8FA3DB);
     static final Color CIAN = new Color(0x00D0FF);
@@ -41,8 +38,7 @@ public class MezclaKListas {
     static final Color AMBAR = new Color(0xFFC83D);
     static final Color ROJO = new Color(0xFF4D5E);
     static final Color GRIS = new Color(0x9AA6C8);
-    // Un color por lista (L1, L2, ...). Los tres primeros son los de la presentacion.
-    // Si prefieres todos los aros en cian como en la imagen, pon CIAN en todas las posiciones.
+
     static final Color[] PALETA = { ROSA, CIAN, MENTA, new Color(0xA78BFA), new Color(0xFF8A5B) };
 
     static final String FUENTE = elegir("Fredoka", "Fredoka One", "Baloo 2", "Nunito", "Poppins",
@@ -50,7 +46,6 @@ public class MezclaKListas {
     static final String MONO = elegir("JetBrains Mono", "Fira Code", "Cascadia Mono", "Consolas",
             "Menlo", "DejaVu Sans Mono", "Monospaced");
 
-    // Codigo que se muestra al lado de la animacion (las lineas activas se resaltan)
     static final String[] CODIGO = {
             "Nodo mezclar(Nodo[] listas) {",
             "  PriorityQueue<Nodo> heap = new PriorityQueue<>((a, b) -> a.valor - b.valor);",
@@ -119,7 +114,7 @@ public class MezclaKListas {
                 (int) (a.getBlue() + (b.getBlue() - a.getBlue()) * t));
     }
 
-    static double suave(double t) {                           // easeInOutCubic
+    static double suave(double t) {                  
         return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
     }
 
